@@ -2,6 +2,7 @@
 
 mkdir -pv rebar2_to_rebar3_trash
 mkdir -pv priv
+mkdir -pv nginx
 mv -v site/src .
 mv -v site/include .
 mv -v site/ebin rebar2_to_rebar3_trash
@@ -81,9 +82,18 @@ chmod 755 update_config_to_rebar3.escript
 echo "Downloading $BASEURL/templates/common/plugins.config"
 curl $OPTS $BASEURL/templates/common/plugins.config -o "plugins.config"
 
-## Get erlang_ls.config for Erlang_LS
-echo "Downloading $BASEURL/templates/common/erlang_ls.config"
-curl $OPTS $BASEURL/templates/common/erlang_ls.config -o "erlang_ls.config"
+## get erlang_ls.config for erlang_ls
+echo "downloading $baseurl/templates/common/erlang_ls.config"
+curl $opts $baseurl/templates/common/erlang_ls.config -o "erlang_ls.config"
+
+## get domain_helper for nginx
+echo "downloading $baseurl/templates/common/nginx/domain_helper"
+curl $opts $baseurl/templates/common/nginx/domain_helper -o "nginx/domain_helper"
+chmod 755 nginx/domain_helper
+
+## get nitrogen.nginx for nginx config
+echo "downloading $baseurl/templates/common/nginx/nitrogen.nginx"
+curl $opts $baseurl/templates/common/nginx/domain_helper -o "nginx/nitrogen.nginx"
 
 
 echo "Updating rebar.config"
