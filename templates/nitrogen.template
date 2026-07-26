@@ -45,6 +45,7 @@
 {template, "common/upgrade_release.sh", "{{prefix}}/{{name}}/upgrade_release.sh"}.
 {template, "common/nginx/nitrogen.nginx", "{{prefix}}/{{name}}/nginx/nitrogen.nginx"}.
 {template, "common/nginx/domain_helper", "{{prefix}}/{{name}}/nginx/domain_helper"}.
+{chmod, "{{prefix}}/{{name}}/in-git.sh", 8#755}.
 {chmod, "{{prefix}}/{{name}}/upgrade_release.sh", 8#755}.
 {chmod, "{{prefix}}/{{name}}/copy_static.escript", 8#755}.
 {chmod, "{{prefix}}/{{name}}/make_version_file.escript", 8#755}.
